@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// POST endpoint to onboard a new professional
+
 app.post('/api/professionals', (req, res) => {
     const { name, email, phone, skills, experience } = req.body;
     const sql = `INSERT INTO professionals (name, email, phone, skills, experience) VALUES (?, ?, ?, ?, ?)`;
@@ -21,7 +21,7 @@ app.post('/api/professionals', (req, res) => {
     });
 });
 
-// GET endpoint to retrieve all professionals
+
 app.get('/api/professionals', (req, res) => {
     const sql = 'SELECT * FROM professionals';
     db.all(sql, [], (err, rows) => {
